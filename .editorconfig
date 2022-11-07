@@ -1,0 +1,25 @@
+# Top-most EditorConfig file
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+space_after_anonymous_functions = true
+space_after_control_statements = true
+spaces_around_operators = true
+quote_type = double
+
+[*.{md,mdx}]
+max_line_length = off
+trim_trailing_whitespace = false
+
+[*.txt]
+trim_trailing_whitespace = false
+
+[{*.json,.eslintrc}]
+max_line_length = off
+insert_final_newline = false
