@@ -58,6 +58,7 @@
 
 - [Node.js](https://nodejs.org) 16 or later
 - [Yarn](https://yarnpkg.com/) Optional/Recommended
+- [ODG TsConfig](https://github.com/ODGodinho/tsconfig) Last Version
 
 ## Get Started
 
@@ -104,4 +105,3 @@ yarn test
 # or
 yarn test:watch
 ```
-

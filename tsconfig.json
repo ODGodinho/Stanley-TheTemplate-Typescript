@@ -1,53 +1,17 @@
 {
     "compilerOptions": {
-        "allowJs": false,
-        "alwaysStrict": true,
-        "declaration": true,
-        "emitDecoratorMetadata": true,
-        "esModuleInterop": true,
-        "experimentalDecorators": true,
-        "forceConsistentCasingInFileNames": true,
-        "incremental": true,
-        "lib": [
-            "ES5",
-            "ES6",
-            "ESNext"
-        ],
-        "module": "Node16",
-        "moduleResolution": "Node16",
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
+        "baseUrl": ".",
         "outDir": "./dist",
-        "preserveConstEnums": true,
-        "removeComments": true,
-        "resolveJsonModule": true,
         "rootDirs": [
             ".",
             "./src"
         ],
-        "sourceMap": true,
-        "strict": true,
-        "strictFunctionTypes": true,
-        "strictNullChecks": true,
-        "strictPropertyInitialization": true,
-        "target": "es2018",
         "typeRoots": [
             "./src/@types",
             "node_modules/@types"
-        ],
-        "types": [
-            "node",
-            "jest"
         ]
     },
-    "exclude": [
-        "node_modules/",
-        "**/tests/*",
-        "coverage/"
-    ],
-    "include": [ "src" ]
+    "exclude": [ "node_modules/" ],
+    "extends": "@odg/tsconfig/tsconfig.node.json",
+    "include": [ "." ]
 }

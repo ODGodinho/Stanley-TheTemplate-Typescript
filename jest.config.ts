@@ -1,7 +1,6 @@
-// eslint-disable-next-line filenames/match-exported
 import { Config } from "jest";
 
-const jestConfig: Config = {
+const jest: Config = {
     collectCoverage: true,
     collectCoverageFrom: [
         "src/**/*.ts",
@@ -24,4 +23,4 @@ const jestConfig: Config = {
     ],
 };
 
-export default jestConfig;
+export default jest;
