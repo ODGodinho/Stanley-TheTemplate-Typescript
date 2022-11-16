@@ -8,13 +8,17 @@
         "build": "tsc --project ./tsconfig.build.json",
         "build:watch": "tsc --project ./tsconfig.build.json -w",
         "dev": "ts-node ./src/index.ts",
+        "start": "node ./dist/index.ts",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
-        "start": "node ./dist/index.ts",
         "test": "jest",
         "test:ci": "jest --ci --passWithNoTests",
         "test:watch": "jest --watchAll"
     },
+    "files": [
+        "./dist/",
+        "./README.md"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ODGodinho/Stanley-TheTemplate-Typescript.git"
