@@ -31,8 +31,11 @@
 - [Benefits](#-benefits)
 - [Libraries](#-libraries)
 - [Dependencies](#-dependencies)
-- [Get Started](#get-started)
+- [Get Started](#-get-started)
   - [Use Template](#use-template)
+  - [Configure Github Token](#configure-github-token)
+    - [Create Github Token](#create-github-token)
+    - [Create project Environment](#create-project-environment)
   - [Prepare to develop](#prepare-to-develop)
   - [Start Project](#start-project)
   - [Build and Run](#build-and-run)
@@ -45,6 +48,9 @@
 - 🚀 Speed start new project or package using typescript
 - 🚨 Over 300 rules for pattern, possible errors and errors in Linter
 - 🎇 Code quality guaranteed
+- 📢 AutoReview when opening a pull-request/merge
+    ![AutoReview Comment example](https://user-images.githubusercontent.com/3797062/97085944-87233a80-165b-11eb-94a8-0a47d5e24905.png)
+- 🧪 Automatic Test when opening pull-request/merge
 
 ## 🖥 Libraries
 
@@ -53,6 +59,7 @@
 - [Eslint](https://eslint.org/?n=dragonsgamers)
 - [ODG-Linter-JS](https://github.com/ODGodinho/ODG-Linter-Js?n=dragonsgamers)
 - [EditorConfig](https://editorconfig.org/?n=dragonsgamers)
+- [ReviewDog](https://github.com/reviewdog/action-eslint)
 
 ## 📁 Dependencies
 
@@ -60,17 +67,36 @@
 - [Yarn](https://yarnpkg.com/) Optional/Recommended
 - [ODG TsConfig](https://github.com/ODGodinho/tsconfig) Last Version
 
-## Get Started
+## 🎇 Get Started
 
 ---
 
 ### Use Template
 
-> Click in use this template button and clone your template project
+Click in use this template button and clone your template project
 
 ![Use Template](https://raw.githubusercontent.com/ODGodinho/Stanley-TheTemplate/main/public/images/UseTemplate.png)
 
-#### Prepare To Develop
+### Configure Github Token
+
+#### Create Github Token
+
+Before create new GITHUB_TOKEN in
+
+- <https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>
+
+#### Create project Environment
+
+- On GitHub.com, navigate to the main page of the repository.
+- Under your repository name, click `⚙️ Settings`.
+![Github Setting images example](https://docs.github.com/assets/cb-27528/images/help/repository/repo-actions-settings.png)
+- In the "Security" section of the sidebar, select `✳️ Secrets`, then click Actions.
+- Click New repository secret.
+- Type a name with: **GH_TOKEN**
+- Enter with your access secret token `ghp_Dsfde....`
+- Click Add secret.
+
+### Prepare To Develop
 
 Copy `.env.example` to `.env` and add the values according to your needs.
 
