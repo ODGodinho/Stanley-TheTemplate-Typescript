@@ -14,29 +14,26 @@
 
 <p align="center">
 
+[![Stargazers](https://img.shields.io/github/stars/ODGodinho/Stanley-TheTemplate-Typescript?color=F430A4)](https://github.com/ODGodinho/Stanley-TheTemplate-Typescript/stargazers)
+[![Made by ODGodinho](https://img.shields.io/badge/made%20by-ODGodinho-%2304A361)](https://www.linkedin.com/in/victor-alves-odgodinho/)
+[![Forks](https://img.shields.io/github/forks/ODGodinho/Stanley-TheTemplate-Typescript?color=CD4D34)](https://github.com/ODGodinho/Stanley-TheTemplate-Typescript/network/members)
 ![Repository size](https://img.shields.io/github/repo-size/ODGodinho/Stanley-TheTemplate-Typescript)
-
-[![Made by ODGodinho](https://img.shields.io/badge/made%20by-ODGodinho-%2304D361)](https://www.linkedin.com/in/victor-alves-odgodinho/)
-
 [![GitHub last commit](https://img.shields.io/github/last-commit/ODGodinho/Stanley-TheTemplate-Typescript)](https://github.com/ODGodinho/Stanley-TheTemplate-Typescript/commits/master)
-
 [![License](https://img.shields.io/badge/license-MIT-brightgreen)](https://opensource.org/licenses/MIT)
-
-[![Stargazers](https://img.shields.io/github/stars/ODGodinho/Stanley-TheTemplate-Typescript?style=social)](https://github.com/ODGodinho/Stanley-TheTemplate-Typescript/stargazers)
 
 </p>
 
-## Table of Contents
+# Table of Contents
 
-- [Benefits](#-benefits)
-- [Libraries](#-libraries)
-- [Dependencies](#-dependencies)
-- [Get Started](#get-started)
-  - [Use Template](#use-template)
-  - [Prepare to develop](#prepare-to-develop)
-  - [Start Project](#start-project)
-  - [Build and Run](#build-and-run)
-  - [Teste Code](#teste-code)
+- [🎇 Benefits](#-benefits)
+- [📗 Libraries](#-libraries)
+- [📁 Dependencies](#-dependencies)
+- [⏩ Get Started](#-get-started)
+  - [🔘 Use Template](#-use-template)
+  - [💻 Prepare to develop](#-prepare-to-develop)
+  - [📍 Start Project](#-start-project)
+  - [📨 Build and Run](#-build-and-run)
+  - [🧪 Teste Code](#-teste-code)
 
 ---
 
@@ -46,7 +43,7 @@
 - 🚨 Over 300 rules for pattern, possible errors and errors in Linter
 - 🎇 Code quality guaranteed
 
-## 🖥 Libraries
+## 📗 Libraries
 
 - [Node.js 16](https://nodejs.org/?n=dragonsgamers)
 - [Typescript](https://www.typescriptlang.org/?n=dragonsgamers)
@@ -60,21 +57,21 @@
 - [Yarn](https://yarnpkg.com/) Optional/Recommended
 - [ODG TsConfig](https://github.com/ODGodinho/tsconfig) Last Version
 
-## Get Started
+## ⏩ Get Started
 
 ---
 
-### Use Template
+### 🔘 Use Template
 
 > Click in use this template button and clone your template project
 
 ![Use Template](https://raw.githubusercontent.com/ODGodinho/Stanley-TheTemplate/main/public/images/UseTemplate.png)
 
-#### Prepare To Develop
+#### 💻 Prepare To Develop
 
 Copy `.env.example` to `.env` and add the values according to your needs.
 
-### Start Project
+### 📍 Start Project
 
 First install dependencies with the following command
 
@@ -84,7 +81,7 @@ yarn install
 npm install
 ```
 
-## Build and Run
+## 📨 Build and Run
 
 To build the project, you can use the following command
 
@@ -96,7 +93,7 @@ yarn build && yarn start
 yarn dev
 ```
 
-## Teste Code
+## 🧪 Teste Code
 
 To Test execute this command
 
