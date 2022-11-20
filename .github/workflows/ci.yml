@@ -2,6 +2,7 @@ name: Ci Job
 
 on:
   push:
+    branches: [ main, master, test ]
   pull_request:
 
 jobs:
