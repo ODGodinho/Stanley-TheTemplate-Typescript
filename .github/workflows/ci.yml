@@ -1,4 +1,4 @@
-name: Ci Job
+name: Ci Job 2
 
 on:
   push:
