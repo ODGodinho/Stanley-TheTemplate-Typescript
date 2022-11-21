@@ -5,23 +5,40 @@ on:
     branches: [ main, master ]
   pull_request:
 
+env:
+  IS_PACKAGE: ${{ secrets.IS_PACKAGE }}
+
 jobs:
   review-and-test:
     name: lint / tests
     runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        version: [ 16 ]
     steps:
       - uses: "actions/checkout@v3"
       - uses: "actions/setup-node@v3"
         with:
-            node-version: 16
+            node-version: ${{ matrix.version }}
+            registry-url: "https://npm.pkg.github.com/"
             cache: "yarn"
-      - run: "yarn"
-      - uses: "reviewdog/action-eslint@v1"
-        if: ${{ github.event_name == 'pull_request' }}
+      - name: "Yarn Install"
+        run: "yarn"
+      - if: ${{ github.event_name == "pull_request" }}
+        name: "Review Dog Pull Request"
+        uses: "reviewdog/action-eslint@v1"
         with:
             reporter: github-check
             github_token: ${{ secrets.GH_TOKEN }}
             eslint_flags: "."
             fail_on_error: true
-      - name: Run Tests
+      - name: "Run Tests"
         run: "yarn test:ci"
+      - name: "Build Code"
+        run: "yarn build"
+      - name: "Check valid to semantic-release"
+        if: ${{ github.event_name == "push" && env.IS_PACKAGE == "true" }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: "yarn semantic-release"

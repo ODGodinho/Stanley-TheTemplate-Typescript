@@ -22,4 +22,6 @@ trim_trailing_whitespace = false
 
 [{*.json,.eslintrc}]
 max_line_length = off
-insert_final_newline = false
+
+[*.{yml,yaml}]
+indent_size = 2
