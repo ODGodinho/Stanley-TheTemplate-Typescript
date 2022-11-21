@@ -24,7 +24,7 @@ jobs:
             cache: "yarn"
       - name: "Yarn Install"
         run: "yarn"
-      - if: ${{ github.event_name == "pull_request" }}
+      - if: ${{ github.event_name == 'pull_request' }}
         name: "Review Dog Pull Request"
         uses: "reviewdog/action-eslint@v1"
         with:
@@ -37,7 +37,7 @@ jobs:
       - name: "Build Code"
         run: "yarn build"
       - name: "Check valid to semantic-release"
-        if: ${{ github.event_name == "push" && env.IS_PACKAGE == "true" }}
+        if: ${{ github.event_name == 'push' && env.IS_PACKAGE == 'true' }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
