@@ -30,8 +30,9 @@
 - [📁 Dependencies](#-dependencies)
 - [⏩ Get Started](#-get-started)
   - [🔘 Use Template](#-use-template)
-  - [🔑 Configure Github Token](#-configure-github-token)
+  - [🔑 Configure Github Secrets](#-configure-github-secrets)
     - [🙈 Create Github Token](#-create-github-token)
+    - [🍀 Code Coverage](#-code-coverage)
     - [📦 Create NPM Token](#-create-npm-token)
     - [🔐 Create project Environment](#-create-project-environment)
   - [💻 Prepare to develop](#-prepare-to-develop)
@@ -49,6 +50,8 @@
 - 📢 AutoReview when opening a pull-request/merge
     ![AutoReview Comment example](https://user-images.githubusercontent.com/3797062/97085944-87233a80-165b-11eb-94a8-0a47d5e24905.png)
 - 🧪 Automatic Test when opening pull-request/merge
+- 📈 Automatic Code Coverage when opening pull-request/merge
+    ![Code Coverage example](https://app.codecov.io/static/media/codecov-report.eeef5dba5ea18b5ed6a4.png)
 - 📦 Automatic Package and release generate on merge
 
 ## 📗 Libraries
@@ -76,13 +79,22 @@ Click in use this template button and clone your template project
 
 ![Use Template](https://raw.githubusercontent.com/ODGodinho/Stanley-TheTemplate/main/public/images/UseTemplate.png)
 
-### 🔑 Configure Github Token
+### 🔑 Configure Github Secrets
 
 #### 🙈 Create Github Token
 
 Before create new GITHUB_TOKEN in
 
 - <https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>
+
+#### 🍀 Code Coverage
+
+Add Code Coverage support in your project
+
+1. Install CodeCov in your account <https://github.com/apps/codecov>
+2. Enter In <https://app.codecov.io/gh/+> and search your repository
+3. Click `setup repo`
+4. Copy CODECOV_TOKEN and create a secret called CODECOV_TOKEN
 
 #### 📦 Create NPM Token
 
@@ -103,6 +115,7 @@ if you want to generate packages create a secret called IS_PACKAGE = true AND cr
 - If you are going to publish package:
   - create **IS_PACKAGE** = `true`
   - create **NPM_TOKEN** = `npm_szxw......`
+  - create **CODECOV_TOKEN** = `00000000-0000-0000-0000-000000000000`
 
 ### 💻 Prepare To Develop
 

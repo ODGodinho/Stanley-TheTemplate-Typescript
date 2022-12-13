@@ -32,10 +32,18 @@ jobs:
           github_token: ${{ secrets.GH_TOKEN }}
           eslint_flags: .
           fail_on_error: true
-      - name: Run Tests
-        run: "yarn test:ci"
       - name: Build Code
         run: yarn build
+      - name: Run Tests
+        run: "yarn test:ci"
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+          verbose: true
       - name: Check valid to semantic-release
         if: ${{ github.event_name == 'push' && env.IS_PACKAGE == 'true' }}
         env:
