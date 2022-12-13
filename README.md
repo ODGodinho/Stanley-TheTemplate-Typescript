@@ -45,7 +45,7 @@
 ## 🎇 Benefits
 
 - 🚀 Speed start new project or package using typescript
-- 🚨 Over 300 rules for pattern, possible errors and errors in Linter
+- 🚨 Over 800 rules for pattern, possible errors and errors in Linter
 - 🎇 Code quality guaranteed
 - 📢 AutoReview when opening a pull-request/merge
     ![AutoReview Comment example](https://user-images.githubusercontent.com/3797062/97085944-87233a80-165b-11eb-94a8-0a47d5e24905.png)
