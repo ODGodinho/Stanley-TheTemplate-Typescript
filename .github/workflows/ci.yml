@@ -30,7 +30,7 @@ jobs:
         with:
           reporter: github-check
           github_token: ${{ secrets.GH_TOKEN }}
-          eslint_flags: .
+          eslint_flags: '--ext .js,.jsx,.ts,.tsx,.json,.jsonc,.json5,.yml,.yaml,.xml,.txt,.svg,.properties,.gradle,.java,.cpp,.c,.cs,.html,.css,.groovy,.gitignore,.npmignore,.toml,.env,.example,.sample,.ini,.php,.bat,.powershell,.ps1,.sh,.bash,.eslintrc .'
           fail_on_error: true
       - name: Build Code
         run: yarn build
