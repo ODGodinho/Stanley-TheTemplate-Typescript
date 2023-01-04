@@ -55,7 +55,7 @@
     "devDependencies": {
         "@odg/eslint-config": "*",
         "@types/jest": "^29.2.2",
-        "@types/node": "^16",
+        "@types/node": "^18",
         "eslint": "*",
         "jest": "^29.2.2",
         "rimraf": "^3.0.2",
