@@ -14,8 +14,8 @@
         "build:watch": "rimraf build && tsc --project ./tsconfig.build.json -w",
         "dev": "ts-node ./src/index.ts",
         "start": "node ./dist/index.ts",
-        "lint": "eslint .",
-        "lint:fix": "eslint . --fix",
+        "lint": "eslint --ext .js,.jsx,.ts,.tsx,.json,.jsonc,.json5,.yml,.yaml,.xml,.txt,.svg,.properties,.gradle,.java,.cpp,.c,.cs,.html,.css,.groovy,.gitignore,.npmignore,.toml,.env,.example,.sample,.ini,.php,.bat,.powershell,.ps1,.sh,.bash,.eslintrc",
+        "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx,.json,.jsonc,.json5,.yml,.yaml,.xml,.txt,.svg,.properties,.gradle,.java,.cpp,.c,.cs,.html,.css,.groovy,.gitignore,.npmignore,.toml,.env,.example,.sample,.ini,.php,.bat,.powershell,.ps1,.sh,.bash,.eslintrc --fix",
         "test": "jest",
         "test:ci": "jest --ci --passWithNoTests",
         "test:watch": "jest --watchAll"
