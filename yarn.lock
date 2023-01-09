@@ -937,9 +937,9 @@
     "@octokit/openapi-types" "^14.0.0"
 
 "@odg/eslint-config@*":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@odg/eslint-config/-/eslint-config-1.8.0.tgz#d77719387107f77d17292a415eaafee899fb61fc"
-  integrity sha512-JJVGhoNTxIkW34DgobmOWoYxwSIvjViTaoSUHKqMC9A28QkvQRQg75kz3sMNzaUf/HczCcmnP1Fny+HRk0aW1Q==
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@odg/eslint-config/-/eslint-config-1.9.0.tgz#5ad86372cdfdd4cc48b18a149f4bb1987daeef35"
+  integrity sha512-dgpOWVAnDa/7AodTG1K0jcf/AYJbwJJp+YI+kcEBuj+fVyt6FczrIzQYmKq23u3TTyFXNXeFsSfsPWLU14fLsw==
   dependencies:
     "@babel/core" "*"
     "@odg/tsconfig" "*"
@@ -965,6 +965,7 @@
     eslint-plugin-security "^1.5.0"
     eslint-plugin-sonar "^0.10.0"
     eslint-plugin-sonarjs "^0.17.0"
+    eslint-plugin-sort-class-members "^1.16.0"
     eslint-plugin-toml "^0.3.1"
     eslint-plugin-unicorn "^45.0.2"
     eslint-plugin-yml "^1.3.0"
@@ -2670,6 +2671,11 @@ eslint-plugin-sonarjs@^0.17.0:
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-sonarjs/-/eslint-plugin-sonarjs-0.17.0.tgz#e026065809e35d286f576ddea094727eeb9cdadd"
   integrity sha512-jtGtxI49UbJJeJj7CVRLI3+LLH+y+hkR3GOOwM7vBbci9DEFIRGCWvEd2BJScrzltZ6D6iubukTAfc9cyG7sdw==
+
+eslint-plugin-sort-class-members@^1.16.0:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sort-class-members/-/eslint-plugin-sort-class-members-1.16.0.tgz#e47596d867a57713571f040024c03fe674dec3fc"
+  integrity sha512-8l0IqUmoupk9PvO5D4I5zJqirVe9sax5Hpfv9xQmnrSpLYkc8BSYGnUjuHGMSSe4jKuC73NIr38kQv1tPbO+Xg==
 
 eslint-plugin-toml@^0.3.1:
   version "0.3.1"
