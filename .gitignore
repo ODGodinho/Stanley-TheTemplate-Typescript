@@ -125,6 +125,7 @@ build/
 
 # VsCode IDE folder
 .vscode/
+vscode-profile*
 
 # SonarLint folder
 .sonarlint/
