@@ -14,9 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [ 16 ]
+        version: [ 18 ]
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
@@ -47,6 +50,6 @@ jobs:
       - name: Check valid to semantic-release
         if: ${{ github.event_name == 'push' && env.IS_PACKAGE == 'true' }}
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn semantic-release
