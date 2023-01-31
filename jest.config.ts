@@ -27,9 +27,6 @@ const jest: Config = {
     modulePaths: [ compilerOptions.baseUrl ],
     moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: "<rootDir>/" }),
     moduleDirectories: [ "node_modules", "src" ],
-    setupFilesAfterEnv: [
-        "<rootDir>/tests/jest/init.ts",
-    ],
 };
 
 export default jest;
