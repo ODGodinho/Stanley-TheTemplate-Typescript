@@ -1,6 +1,4 @@
 {
-    "typescript.preferences.importModuleSpecifier": "non-relative",
-    "conventionalCommits.scopes": [
-        "Paths"
-    ]
+    "conventionalCommits.scopes": [ "Paths" ],
+    "typescript.preferences.importModuleSpecifier": "non-relative"
 }
