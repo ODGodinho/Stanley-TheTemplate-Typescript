@@ -6,9 +6,9 @@
     "types": "dist/index.d.ts",
     "homepage": "",
     "scripts": {
-        "build": "rimraf build && tsc --project ./tsconfig.build.json",
-        "build:watch": "rimraf build && tsc --project ./tsconfig.build.json -w",
-        "dev": "ts-node ./src/index.ts",
+        "build": "rimraf dist/ && tsc --project ./tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+        "build:watch": "npm run build && (concurrently \"tsc --project ./tsconfig.build.json -w\" \"tsc-alias -p tsconfig.build.json -w\")",
+        "dev": "ts-node -r tsconfig-paths/register ./src/index.ts",
         "start": "node ./dist/index.ts",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx,.json,.jsonc,.json5,.yml,.yaml,.xml,.txt,.svg,.properties,.gradle,.java,.cpp,.c,.cs,.html,.css,.groovy,.gitignore,.npmignore,.toml,.env,.example,.sample,.ini,.php,.bat,.powershell,.ps1,.sh,.bash,.eslintrc",
         "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx,.json,.jsonc,.json5,.yml,.yaml,.xml,.txt,.svg,.properties,.gradle,.java,.cpp,.c,.cs,.html,.css,.groovy,.gitignore,.npmignore,.toml,.env,.example,.sample,.ini,.php,.bat,.powershell,.ps1,.sh,.bash,.eslintrc --fix",
@@ -50,17 +50,18 @@
     "license": "MIT",
     "devDependencies": {
         "@odg/eslint-config": "*",
+        "@odg/tsconfig": "*",
         "@types/jest": "^29.4.0",
         "@types/node": "^18",
+        "concurrently": "^7.6.0",
         "eslint": "*",
         "jest": "^29.4.1",
         "rimraf": "^4.1.2",
         "semantic-release": "^20.1.0",
         "ts-jest": "^29.0.5",
         "ts-node": "^10.9.1",
+        "tsc-alias": "^1.8.2",
         "typescript": "^4.9.5"
     },
-    "dependencies": {
-        "@odg/tsconfig": "*"
-    }
+    "dependencies": {}
 }

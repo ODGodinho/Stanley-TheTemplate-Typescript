@@ -58,7 +58,7 @@
 
 ## 📗 Libraries
 
-- [Node.js 16](https://nodejs.org/?n=dragonsgamers)
+- [Node.js 18](https://nodejs.org/?n=dragonsgamers)
 - [Typescript](https://www.typescriptlang.org/?n=dragonsgamers)
 - [Eslint](https://eslint.org/?n=dragonsgamers)
 - [ODG-Linter-JS](https://github.com/ODGodinho/ODG-Linter-Js?n=dragonsgamers)
@@ -67,7 +67,7 @@
 
 ## 📁 Dependencies
 
-- [Node.js](https://nodejs.org) 16 or later
+- [Node.js](https://nodejs.org) 18 or later
 - [Yarn](https://yarnpkg.com/) Optional/Recommended
 - [ODG TsConfig](https://github.com/ODGodinho/tsconfig) Last Version
 
