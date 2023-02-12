@@ -21,10 +21,7 @@
         "access": "public"
     },
     "lint-staged": {
-        "*": [
-            "npm run lint:fix",
-            "npm run test:ci"
-        ]
+        "*": [ "npm run lint:fix" ]
     },
     "release": {
         "branches": [
