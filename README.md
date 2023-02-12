@@ -55,6 +55,7 @@
 - 📈 Automatic Code Coverage when opening pull-request/merge
     ![Code Coverage example](https://app.codecov.io/static/media/codecov-report.eeef5dba5ea18b5ed6a4.png)
 - 📦 Automatic Package and release generate on merge
+- 🪝 Run Lint/Test command pre-commit execute
 
 ## 📗 Libraries
 
