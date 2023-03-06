@@ -973,9 +973,9 @@
     toml-eslint-parser "^0.4.0"
 
 "@odg/tsconfig@*":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@odg/tsconfig/-/tsconfig-1.0.0.tgz#13b984a7b7c8fa0553e7b9d3c2e5035b5be09b44"
-  integrity sha512-xY87lHZJuFOpCU55i0j54c/Sp2VbzhrDWR1EOLu0FgSSC2TfFE6FbL1Omi2hWYrIk4N8pPRscBp8l7EA4TtVUg==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@odg/tsconfig/-/tsconfig-1.1.0.tgz#a7962a4a378ccd10263342f0b0ba419427a7a595"
+  integrity sha512-VVgIIR43cSA9jWpssH3awL348jnxhWkcjfNje/5NhaRqIBQWToa3P9f45czmYfFRcvbaZiwXMJaunUROqowhTg==
 
 "@pkgr/utils@^2.3.1":
   version "2.3.1"
