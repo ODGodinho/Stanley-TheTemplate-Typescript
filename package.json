@@ -56,7 +56,7 @@
         "@odg/eslint-config": "*",
         "@odg/tsconfig": "*",
         "@types/jest": "^29.5.1",
-        "@types/node": "^18",
+        "@types/node": "^20",
         "concurrently": "^8.0.1",
         "eslint": "*",
         "husky": "^8.0.3",
