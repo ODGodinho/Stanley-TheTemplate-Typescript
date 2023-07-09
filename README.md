@@ -116,9 +116,11 @@ if you want to generate packages create a secret called IS_PACKAGE = true AND cr
 - Enter with your access secret token `ghp_Dsfde....`
 - Click Add secret.
 - If you are going to publish package:
-  - create **IS_PACKAGE** = `true`
-  - create **NPM_TOKEN** = `npm_szxw......`
-  - create **CODECOV_TOKEN** = `00000000-0000-0000-0000-000000000000`
+  - secrets:
+    - create **NPM_TOKEN** = `npm_szxw......`
+    - create **CODECOV_TOKEN** = `00000000-0000-0000-0000-000000000000`
+  - variables:
+    - create **IS_PACKAGE** = `true`
 
 ### 💻 Prepare To Develop
 
