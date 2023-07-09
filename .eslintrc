@@ -1,6 +1,6 @@
 {
     "env": {
-        "jest": true
+        "vitest/globals": true
     },
     "extends": [ "@odg" ]
 }
