@@ -4,12 +4,12 @@
     "description": "Stanley TheTemplate for typescript project",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "homepage": "",
+    "homepage": "https://github.com/ODGodinho/Stanley-TheTemplate-Typescript",
     "scripts": {
         "build": "rimraf dist/ && tsc --project ./tsconfig.build.json && tsc-alias -p tsconfig.build.json",
         "build:watch": "npm run build && (concurrently \"tsc --project ./tsconfig.build.json -w\" \"tsc-alias -p tsconfig.build.json -w\")",
-        "dev": "ts-node -r tsconfig-paths/register ./src/index.ts",
-        "start": "node ./dist/index.ts",
+        "dev": "tsx ./src/index.ts",
+        "start": "node ./dist/index.js",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx,.json,.jsonc,.json5,.yml,.yaml,.xml,.txt,.svg,.properties,.gradle,.java,.cpp,.c,.cs,.html,.css,.groovy,.gitignore,.npmignore,.toml,.env,.example,.sample,.ini,.php,.bat,.powershell,.ps1,.sh,.bash,.eslintrc",
         "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx,.json,.jsonc,.json5,.yml,.yaml,.xml,.txt,.svg,.properties,.gradle,.java,.cpp,.c,.cs,.html,.css,.groovy,.gitignore,.npmignore,.toml,.env,.example,.sample,.ini,.php,.bat,.powershell,.ps1,.sh,.bash,.eslintrc --fix",
         "prepare": "husky install",
@@ -55,18 +55,17 @@
     "devDependencies": {
         "@odg/eslint-config": "*",
         "@odg/tsconfig": "*",
-        "@types/node": "^18",
+        "@types/node": "^20.4.8",
         "@vitest/coverage-v8": "^0.33.0",
         "concurrently": "^8.2.0",
         "eslint": "*",
         "husky": "^8.0.3",
         "lint-staged": "^13.2.3",
         "rimraf": "^5.0.1",
-        "ts-node": "^10.9.1",
         "tsc-alias": "^1.8.7",
+        "tsx": "^3.12.7",
         "typescript": "^5.1.6",
         "vite-tsconfig-paths": "^4.2.0",
         "vitest": "^0.33.0"
-    },
-    "dependencies": {}
+    }
 }
