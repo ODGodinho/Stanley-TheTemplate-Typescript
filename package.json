@@ -57,7 +57,7 @@
         "@odg/tsconfig": "*",
         "@types/node": "^20.5.7",
         "@vitest/coverage-v8": "^0.34.4",
-        "concurrently": "^8.2.0",
+        "concurrently": "^8.2.1",
         "eslint": "*",
         "husky": "^8.0.3",
         "lint-staged": "^14.0.1",
