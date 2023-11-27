@@ -63,7 +63,7 @@
         "lint-staged": "^15.1.0",
         "rimraf": "^5.0.5",
         "tsc-alias": "^1.8.8",
-        "tsx": "^4.1.1",
+        "tsx": "^4.5.0",
         "typescript": "^5.2.2",
         "vite-tsconfig-paths": "*",
         "vitest": "^0.34.6"
