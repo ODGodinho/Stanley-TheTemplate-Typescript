@@ -58,7 +58,7 @@
         "@types/node": ">=18",
         "@vitest/coverage-v8": "*",
         "concurrently": "^8.2.2",
-        "eslint": "*",
+        "eslint": "9.0.0",
         "husky": "^8.0.3",
         "lint-staged": "^15.1.0",
         "rimraf": "^5.0.5",
