@@ -60,7 +60,7 @@
         "concurrently": "^8.2.2",
         "eslint": "*",
         "husky": "^8.0.3",
-        "lint-staged": "^15.1.0",
+        "lint-staged": "^15.2.4",
         "rimraf": "^5.0.5",
         "tsc-alias": "^1.8.8",
         "tsx": "^4.1.1",
