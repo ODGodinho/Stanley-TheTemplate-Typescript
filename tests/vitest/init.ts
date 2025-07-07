@@ -1,5 +1,11 @@
 import "vitest/globals.d.ts";
 
+import { container } from "./SingletonTest";
+
 export default void (async (): Promise<void> => {
-    // Test init
+    process.env = {
+        ...process.env,
+    };
+
+    await container.setUp();
 })();
