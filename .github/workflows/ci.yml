@@ -31,7 +31,7 @@ jobs:
           reporter: github-pr-review
           github_token: ${{ secrets.GH_TOKEN }}
           eslint_flags: '--ext .js,.jsx,.ts,.tsx,.json,.jsonc,.json5,.yml,.yaml,.xml,.txt,.svg,.properties,.gradle,.java,.cpp,.c,.cs,.html,.css,.groovy,.gitignore,.npmignore,.toml,.env,.example,.sample,.ini,.php,.bat,.powershell,.ps1,.sh,.bash,.eslintrc .'
-          fail_on_error: true
+          fail_level: error
       - name: Build Code
         run: yarn build
       - name: Run Tests
