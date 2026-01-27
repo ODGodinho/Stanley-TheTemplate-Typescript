@@ -59,7 +59,7 @@
         "@types/node": ">=22",
         "@vitest/coverage-istanbul": "^1",
         "concurrently": "^9.2.0",
-        "eslint": "*",
+        "eslint": "9.26.0",
         "husky": "^9.1.7",
         "lint-staged": "^16.1.2",
         "rimraf": "*",
