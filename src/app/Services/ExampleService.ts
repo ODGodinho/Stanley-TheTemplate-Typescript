@@ -1,10 +1,11 @@
+import { provide } from "@inversifyjs/binding-decorators";
 import { LoggerInterface } from "@odg/log";
-import { inject } from "inversify";
-import { fluentProvide } from "inversify-binding-decorators";
+import { inject, injectable } from "inversify";
 
 import { ContainerName } from "@enums";
 
-@(fluentProvide(ContainerName.ExampleService).inSingletonScope().done())
+@injectable("Singleton")
+@provide(ContainerName.ExampleService)
 export class ExampleService {
 
     public constructor(@inject(ContainerName.Logger) protected log: LoggerInterface) {

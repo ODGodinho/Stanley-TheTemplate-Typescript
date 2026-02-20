@@ -1,12 +1,12 @@
 import { randomUUID } from "node:crypto";
 
-import { LoggerInterface } from "@odg/log";
-import { inject } from "inversify";
-import { fluentProvide } from "inversify-binding-decorators";
+import { provide } from "@inversifyjs/binding-decorators";
+import { Logger, LoggerInterface } from "@odg/log";
+import { inject, injectable } from "inversify";
 
-import { type ContainerInterface } from "#types";
+import type { ContainerInterface } from "#types";
 import { ContainerName } from "@enums";
-import Container from "~/app/Container";
+import type { Container } from "~/app/Container";
 import { ProcessKernel } from "~/Console";
 
 /**
@@ -14,7 +14,8 @@ import { ProcessKernel } from "~/Console";
  *
  * @class Kernel
  */
-@(fluentProvide(ContainerName.Kernel).inSingletonScope().done())
+@injectable("Singleton")
+@provide(ContainerName.Kernel)
 export class Kernel {
 
     public constructor(
@@ -36,8 +37,8 @@ export class Kernel {
             this.logger.info("Kernel Starting"),
             this.bootLogs(),
             this.container.get(ContainerName.EventServiceProvider).boot(),
-            process.send?.("ready"),
         ]);
+        process.send?.("ready");
     }
 
     public async shutdown(): Promise<void> {
@@ -60,8 +61,9 @@ export class Kernel {
     }
 
     private async bootLogs(): Promise<void> {
-        const logger = this.container.get(ContainerName.Logger)!;
+        const logger: Logger = this.container.get(ContainerName.Logger);
         const jsonLogger = this.container.get(ContainerName.JSONLoggerPlugin);
+
         logger.pushHandler(this.consoleLogger);
         logger.pushProcessor(jsonLogger);
         jsonLogger.setIdentifier(randomUUID());

@@ -15,14 +15,15 @@ const vite = defineConfig({
                 lines: [ coverage100, coverage100 ],
                 statements: [ coverage100, coverage100 ],
             },
+            thresholds: {
+                "100": true,
+            },
             exclude: [
                 "src/index.ts",
                 "src/index.js",
             ],
         },
-        setupFiles: [
-            "./tests/vitest/init.ts",
-        ],
+        setupFiles: [ "./tests/vitest/init.ts" ],
     },
     plugins: [ tsconfigPaths() ],
 

@@ -1,8 +1,9 @@
-import { type EventObjectType } from "@odg/events";
+import type { EventObjectType } from "@odg/events";
 
-import { type EventName } from "@enums";
+import type { EventName } from "@enums";
 
 export interface EventDefaultParameters {
+    exampleParameterToEvent?: string;
 }
 
 export interface EventBaseInterface extends EventObjectType {

@@ -1,3 +1,4 @@
+import { provide } from "@inversifyjs/binding-decorators";
 import { ODGDecorators } from "@odg/chemical-x";
 import {
     EventBusInterface,
@@ -6,20 +7,21 @@ import {
 } from "@odg/events";
 import {
     inject,
+    injectable,
 } from "inversify";
-import { fluentProvide } from "inversify-binding-decorators";
 
-import { type EventTypes } from "#types/EventsInterface";
+import type { EventTypes } from "#types/EventsInterface";
 import { ContainerName } from "@enums";
 
-import Container from "../Container";
+import type { Container } from "../Container";
 
 /**
  * Event Service Provider to Register all event Listeners
  *
  * @template {EventTypes} Events Events List
  */
-@(fluentProvide(ContainerName.EventServiceProvider).inSingletonScope().done())
+@injectable("Singleton")
+@provide(ContainerName.EventServiceProvider)
 export class EventServiceProvider<Events extends EventTypes> extends EventServiceProviderBase<Events> {
 
     /**
@@ -47,7 +49,7 @@ export class EventServiceProvider<Events extends EventTypes> extends EventServic
     }
 
     /**
-     * Boot EventServiceProvider
+     * Boot EventServiceProvider register all events listeners
      *
      * @memberof EventServiceProvider
      * @returns {Promise<void>}
@@ -73,7 +75,7 @@ export class EventServiceProvider<Events extends EventTypes> extends EventServic
      */
     private getListeners(): EventListener<EventTypes> {
         return {
-            ...ODGDecorators.getEvents(this.container.container),
+            ...ODGDecorators.getEvents(this.container),
         };
     }
 

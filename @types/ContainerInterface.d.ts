@@ -1,20 +1,20 @@
-import { type ConfigInterface } from "@odg/config";
-import { type EventBusInterface } from "@odg/events";
-import { type JSONLoggerPlugin } from "@odg/json-log";
-import { type Logger, type LoggerInterface } from "@odg/log";
-import { type MessageInterface } from "@odg/message";
+import type { ConfigInterface } from "@odg/config";
+import type { EventBusInterface } from "@odg/events";
+import type { JSONLoggerPlugin } from "@odg/json-log";
+import type { Logger, LoggerInterface } from "@odg/log";
+import type { MessageInterface } from "@odg/message";
 
-import { type EventTypes } from "#types";
-import { type ConfigType } from "@configs";
-import { type ContainerName } from "@enums";
-import { type ExampleEventListener } from "@listeners";
-import { type ExampleService } from "@services";
-import type Container from "~/app/Container";
-import { type EventServiceProvider } from "~/app/Provider";
-import { type Kernel, type ProcessKernel } from "~/Console";
+import type { EventTypes } from "#types";
+import type { ConfigType } from "@configs";
+import type { ContainerName } from "@enums";
+import type { ExampleEventListener } from "@listeners";
+import type { ExampleService } from "@services";
+import type { Container } from "~/app/Container";
+import type { EventServiceProvider } from "~/app/Provider";
+import type { Kernel, ProcessKernel } from "~/Console";
 
 export interface ContainerInterface {
-    [ContainerName.Logger]: Logger | undefined;
+    [ContainerName.Logger]: Logger | LoggerInterface;
     [ContainerName.Requester]: MessageInterface;
     [ContainerName.ProcessKernel]: ProcessKernel;
     [ContainerName.Kernel]: Kernel;

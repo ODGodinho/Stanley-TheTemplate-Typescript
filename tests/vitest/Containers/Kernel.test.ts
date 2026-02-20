@@ -1,21 +1,33 @@
 import { vi } from "vitest";
 
 import { ContainerName } from "@enums";
-import { container } from "tests/vitest/SingletonTest";
+import { Container } from "src/app/Container";
 
-describe("Kernel Teste", () => {
-    test("Boot", async () => {
-        const kernel = container.get(ContainerName.Kernel);
+describe("Container Kernel Test", () => {
+    let container: Container;
 
-        const bootLogsSpy = vi.spyOn(kernel as unknown as { bootLogs(): void }, "bootLogs");
-        expect(bootLogsSpy).not.toBeCalled();
-        await expect(kernel.boot()).resolves.toBeUndefined();
-        expect(bootLogsSpy).toBeCalledTimes(1);
+    beforeEach(async () => {
+        container = new Container();
+        await container.setUp();
+
+        const loggerMock = vi.spyOn(container.get(ContainerName.Logger), "info");
+
+        loggerMock.mockImplementation(async (): Promise<void> => {
+            // Not action
+        });
     });
 
-    test("Shutdown", async () => {
+    test("Kernel setup and shutdown", async () => {
         const kernel = container.get(ContainerName.Kernel);
 
+        await expect(kernel.boot()).resolves.toBeUndefined();
         await expect(kernel.shutdown()).resolves.toBeUndefined();
+    });
+
+    test("Kernel boot process.send", async () => {
+        process.send = (): boolean => true;
+        const kernel = container.get(ContainerName.Kernel);
+
+        await expect(kernel.boot()).resolves.toBeUndefined();
     });
 });
