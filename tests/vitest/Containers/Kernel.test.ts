@@ -1,7 +1,7 @@
 import { vi } from "vitest";
 
-import { ContainerName } from "@enums";
-import { Container } from "src/app/Container";
+import { Container } from "#app/Container.js";
+import { ContainerName } from "#enums";
 
 describe("Container Kernel Test", () => {
     let container: Container;

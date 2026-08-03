@@ -1,4 +1,4 @@
-import { container } from "./SingletonTest";
+import { container } from "./SingletonTest.js";
 
 export default void (async (): Promise<void> => {
     process.env = {

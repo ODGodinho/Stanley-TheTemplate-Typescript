@@ -8,9 +8,9 @@ import {
     vi,
 } from "vitest";
 
-import { ContainerName } from "@enums";
+import { ContainerName } from "#enums";
 
-import { container } from "../SingletonTest";
+import { container } from "../SingletonTest.js";
 
 describe("Test process kernel", async () => {
     let capturedUncaughtException: ((...parameters: unknown[]) => void) | undefined;
@@ -162,21 +162,6 @@ describe("Test process kernel", async () => {
         expect(mock).toHaveBeenCalled();
     });
 
-    test.skip("KernelProcess called uncaughtException", async () => {
-        const logger = container.get(ContainerName.Logger);
-        const processKernel = container.get(ContainerName.ProcessKernel);
-
-        assert(logger);
-
-        const mock = vi.spyOn(logger, "debug");
-
-        expect(() => {
-            processKernel["messageShutdownListen"]("shutdown");
-        }).not.toThrow();
-        expect(mock).toHaveBeenCalled();
-        expect(mock.mock.calls[0][0]).toBe(messageToEnd);
-    });
-
     test("KernelProcess called other message", async () => {
         const logger = container.get(ContainerName.Logger);
         const processKernel = container.get(ContainerName.ProcessKernel);
@@ -187,5 +172,27 @@ describe("Test process kernel", async () => {
             processKernel["messageShutdownListen"]("other");
         }).not.toThrow();
         expect(mock).not.toHaveBeenCalled();
+    });
+
+    test("KernelProcess called uncaughtException without logger bound", async () => {
+        const processKernel = container.get(ContainerName.ProcessKernel);
+
+        const mock = vi.spyOn(processKernel.container, "getOptional").mockReturnValue(undefined);
+
+        expect(() => {
+            processKernel["uncaughtException"](new Exception("Uncaught exception without logger"));
+        }).not.toThrow();
+        expect(mock).toHaveBeenCalledWith(ContainerName.Logger);
+    });
+
+    test("KernelProcess message shutdown without logger bound", async () => {
+        const processKernel = container.get(ContainerName.ProcessKernel);
+
+        const mock = vi.spyOn(processKernel.container, "getOptional").mockReturnValue(undefined);
+
+        expect(() => {
+            processKernel["messageShutdownListen"]("shutdown");
+        }).not.toThrow();
+        expect(mock).toHaveBeenCalledWith(ContainerName.Logger);
     });
 });

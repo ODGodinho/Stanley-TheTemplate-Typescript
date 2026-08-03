@@ -1,17 +1,17 @@
+import type { EventTypes } from "#types";
 import type { ConfigInterface } from "@odg/config";
 import type { EventBusInterface } from "@odg/events";
 import type { JSONLoggerPlugin } from "@odg/json-log";
 import type { Logger, LoggerInterface } from "@odg/log";
 import type { MessageInterface } from "@odg/message";
 
-import type { EventTypes } from "#types";
-import type { ConfigType } from "@configs";
-import type { ContainerName } from "@enums";
-import type { ExampleEventListener } from "@listeners";
-import type { ExampleService } from "@services";
-import type { Container } from "~/app/Container";
-import type { EventServiceProvider } from "~/app/Provider";
-import type { Kernel, ProcessKernel } from "~/Console";
+import type { Container } from "#app/Container.ts";
+import type { ConfigType } from "#configs";
+import type { ContainerName } from "#enums";
+import type { Kernel, ProcessKernel } from "#kernel";
+import type { ExampleEventListener } from "#listeners";
+import type { EventServiceProvider } from "#providers";
+import type { ExampleService } from "#services";
 
 export interface ContainerInterface {
     [ContainerName.Logger]: Logger | LoggerInterface;

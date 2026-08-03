@@ -1,4 +1,4 @@
-import zod from "zod";
+import * as zod from "zod";
 
 /**
  * Class with custom validators
@@ -12,7 +12,7 @@ export class CustomValidator {
     > {
         return zod.union([
             zod.boolean(),
-            zod.string().transform((value): boolean => value === "true"),
+            zod.string().trim().transform((value): boolean => value === "true"),
         ]);
     }
 
@@ -22,8 +22,9 @@ export class CustomValidator {
         return zod.union([
             zod.number(),
             zod.string()
+                .trim()
                 .transform((value): number => Number(value.trim()))
-                .refine((value) => !Number.isNaN(value), { message: "Invalid number" }),
+                .refine((value) => !Number.isNaN(value), { error: "Invalid number" }),
         ]);
     }
 

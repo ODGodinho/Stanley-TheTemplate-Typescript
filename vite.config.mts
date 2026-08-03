@@ -1,9 +1,11 @@
-import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig } from "vitest/config";
 
 const coverage100 = 100;
 
 const vite = defineConfig({
+    resolve: {
+        tsconfigPaths: true,
+    },
     test: {
         globals: true,
         coverage: {
@@ -25,8 +27,6 @@ const vite = defineConfig({
         },
         setupFiles: [ "./tests/vitest/init.ts" ],
     },
-    plugins: [ tsconfigPaths() ],
-
 });
 
 export default vite;

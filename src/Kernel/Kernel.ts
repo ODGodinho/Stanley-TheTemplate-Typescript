@@ -1,29 +1,28 @@
 import { randomUUID } from "node:crypto";
 
-import { provide } from "@inversifyjs/binding-decorators";
-import { Logger, LoggerInterface } from "@odg/log";
-import { inject, injectable } from "inversify";
-
 import type { ContainerInterface } from "#types";
-import { ContainerName } from "@enums";
-import type { Container } from "~/app/Container";
-import { ProcessKernel } from "~/Console";
+import { ODGDecorators } from "@odg/chemical-x";
+import type { Logger, LoggerInterface } from "@odg/log";
+
+import type { Container } from "#app/Container.js";
+import { $inject } from "#app/ContainerInject.js";
+import { ContainerName } from "#enums";
+import type { ProcessKernel } from "#kernel";
 
 /**
  * Kernel command class
  *
  * @class Kernel
  */
-@injectable("Singleton")
-@provide(ContainerName.Kernel)
+@ODGDecorators.injectable(ContainerName.Kernel, "Singleton")
 export class Kernel {
 
     public constructor(
-        @inject(ContainerName.Config) public readonly config: ContainerInterface[ContainerName.Config],
-        @inject(ContainerName.ConsoleLogger) public readonly consoleLogger: LoggerInterface,
-        @inject(ContainerName.Logger) public readonly logger: LoggerInterface,
-        @inject(ContainerName.Container) public readonly container: Container,
-        @inject(ContainerName.ProcessKernel) public readonly processKernel: ProcessKernel,
+        @$inject(ContainerName.Config) public readonly config: ContainerInterface[ContainerName.Config],
+        @$inject(ContainerName.ConsoleLogger) public readonly consoleLogger: LoggerInterface,
+        @$inject(ContainerName.Logger) public readonly logger: LoggerInterface,
+        @$inject(ContainerName.Container) public readonly container: Container,
+        @$inject(ContainerName.ProcessKernel) public readonly processKernel: ProcessKernel,
     ) {
     }
 

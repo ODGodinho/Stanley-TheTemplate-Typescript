@@ -1,15 +1,14 @@
-import { provide } from "@inversifyjs/binding-decorators";
-import { inject, injectable } from "inversify";
+import { detach, ODGDecorators } from "@odg/chemical-x";
 
-import { ContainerName } from "@enums";
-import type { Container } from "~/app/Container";
+import type { Container } from "#app/Container.js";
+import { $inject } from "#app/ContainerInject.js";
+import { ContainerName } from "#enums";
 
-@injectable("Singleton")
-@provide(ContainerName.ProcessKernel)
+@ODGDecorators.injectable(ContainerName.ProcessKernel, "Singleton")
 export class ProcessKernel {
 
     public constructor(
-        @inject(ContainerName.Container) public readonly container: Container,
+        @$inject(ContainerName.Container) public readonly container: Container,
     ) {
     }
 
@@ -32,7 +31,7 @@ export class ProcessKernel {
     private uncaughtException(error: Error): void {
         const logger = this.container.getOptional(ContainerName.Logger);
 
-        void logger?.emergency(error);
+        void detach(logger?.emergency(error), logger ?? null);
     }
 
     /**
@@ -49,7 +48,7 @@ export class ProcessKernel {
         const logger = this.container.getOptional(ContainerName.Logger);
 
         if (message === "shutdown") {
-            void logger?.debug("Waiting for the crawler to kill the process");
+            void detach(logger?.debug("Waiting for the crawler to kill the process"), logger ?? null);
         }
     }
 

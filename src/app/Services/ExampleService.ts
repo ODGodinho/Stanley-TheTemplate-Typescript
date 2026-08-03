@@ -1,18 +1,17 @@
-import { provide } from "@inversifyjs/binding-decorators";
-import { LoggerInterface } from "@odg/log";
-import { inject, injectable } from "inversify";
+import { ODGDecorators } from "@odg/chemical-x";
+import type { LoggerInterface } from "@odg/log";
 
-import { ContainerName } from "@enums";
+import { $inject } from "#app/ContainerInject.js";
+import { ContainerName } from "#enums";
 
-@injectable("Singleton")
-@provide(ContainerName.ExampleService)
+@ODGDecorators.injectable(ContainerName.ExampleService, "Singleton")
 export class ExampleService {
 
-    public constructor(@inject(ContainerName.Logger) protected log: LoggerInterface) {
+    public constructor(@$inject(ContainerName.Logger) protected log: LoggerInterface) {
     }
 
     public async execute(): Promise<void> {
-        await this.log.info("Example Only");
+        await this.log.debug("Example Only Code Is running");
     }
 
 }

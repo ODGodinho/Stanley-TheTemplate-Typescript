@@ -1,16 +1,17 @@
 import { ConsoleLogger } from "@odg/log";
 import { vi } from "vitest";
 
-import { ConfigName, ContainerName } from "@enums";
-import { Container } from "src/app/Container";
-import { container } from "tests/vitest/SingletonTest";
+import { Container } from "#app/Container.js";
+import { ConfigName, ContainerName } from "#enums";
+
+import { container } from "../SingletonTest.js";
 
 describe("Container teste", () => {
     test("Container Functions", async () => {
         expect(container.isBound(ContainerName.ConsoleLogger)).toBe(true);
 
         expect(container.getOptional(ContainerName.ConsoleLogger)).toBeInstanceOf(ConsoleLogger);
-        expect(container.getOptional("Not_Bound" as ContainerName)).toBeUndefined();
+        expect(container.getOptional("Not_Bound")).toBeUndefined();
 
         await expect(container.getAsync(ContainerName.ConsoleLogger)).resolves.toBeInstanceOf(ConsoleLogger);
     });

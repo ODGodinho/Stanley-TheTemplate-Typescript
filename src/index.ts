@@ -1,12 +1,11 @@
 import "reflect-metadata";
 
-import { ContainerName } from "@enums";
-
-import { Container } from "./app/Container";
+import { Container } from "#app/Container.js";
+import { ContainerName } from "#enums";
 
 const project = new Container();
 
-(async (): Promise<void> => {
+try {
     await project.setUp();
 
     const kernel = project.get(ContainerName.Kernel);
@@ -18,12 +17,19 @@ const project = new Container();
     await service.execute();
 
     await kernel.shutdown();
-})()
-    .then(() => process.exit(0))
-    .catch(async (exception) => {
-        const loggerName = project.isBound(ContainerName.Logger) ? ContainerName.Logger : ContainerName.ConsoleLogger;
 
-        await project.getOptional(loggerName)?.error(exception).catch(() => null);
+    process.exit(0);
+} catch (exception) {
+    const loggerName = project.isBound(ContainerName.Logger) ? ContainerName.Logger : ContainerName.ConsoleLogger;
 
-        process.exit(1);
-    });
+    const logger = project.getOptional(loggerName);
+
+    await logger?.error(exception);
+
+    if (logger) {
+        // eslint-disable-next-line no-console -- Disabled only for critical errors
+        console.error(exception);
+    }
+
+    process.exit(1);
+}

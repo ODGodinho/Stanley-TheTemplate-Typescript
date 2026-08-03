@@ -1,5 +1,162 @@
 {
-    "typescript.preferences.importModuleSpecifier": "non-relative",
-    "vitest.commandLine": "yarn test:watch",
-    "vitest.enable": true
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "never"
+    },
+
+    // Formatador nativo LIGADO; o ESLint --fix roda logo depois (codeActionsOnSave)
+    "prettier.enable": false,
+    "editor.formatOnSave": false,
+    "eslint.format.enable": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+
+    // ===== Editor: espelha indent/eol/max-len do @stylistic =====
+    "editor.tabSize": 4,
+    "editor.renderWhitespace": "all",
+    "editor.trimAutoWhitespace": true,
+    "editor.occurrencesHighlight": "multiFile",
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+
+    // Monorepo: resolve o tsconfig/config do pacote certo (perf + type-aware correto)
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+    "eslint.useFlatConfig": true,
+    "eslint.runtime": "bun",
+    "js/ts.preferences.quoteStyle": "double",
+    "js/ts.format.semicolons": "ignore",
+    "js/ts.format.insertSpaceAfterCommaDelimiter": true,
+    "js/ts.format.insertSpaceAfterSemicolonInForStatements": true,
+    "js/ts.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+    "js/ts.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+    "js/ts.format.insertSpaceBeforeFunctionParenthesis": false,
+    "js/ts.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+    "js/ts.format.placeOpenBraceOnNewLineForControlBlocks": false,
+    "js/ts.format.placeOpenBraceOnNewLineForFunctions": false,
+    "js/ts.format.indentSwitchCase": true,
+    "js/ts.format.insertSpaceAfterConstructor": false,
+    "js/ts.preferences.preferTypeOnlyAutoImports": true,
+    "js/ts.preferences.importModuleSpecifier": "non-relative",
+    "js/ts.suggest.autoImports": true,
+    "js/ts.preferences.autoImportFileExcludePatterns": [
+        ".*/**/*",
+        "dist/**/*",
+        "build/**/*",
+        "logs/**/*",
+        "out/**/*"
+    ],
+
+    // Optimize todo hightlight
+    "todohighlight.isEnable": true,
+    "todohighlight.isCaseSensitive": true,
+    "todohighlight.keywords": [
+        {
+            "text": "DEBUG:",
+            "color": "#FFF",
+            "backgroundColor": "#6900cc"
+        },
+        {
+            "text": "OPTIMIZE:",
+            "color": "#FFF",
+            "backgroundColor": "#00ccff"
+        },
+        {
+            "text": "FIX:",
+            "color": "#FFF",
+            "backgroundColor": "#FF2D00"
+        },
+        {
+            "text": "todo:",
+            "color": "#31b4de",
+            "backgroundColor": ""
+        },
+        {
+            "text": "@todo",
+            "color": "#31b4de",
+            "backgroundColor": ""
+        },
+        {
+            "text": "REVIEW:",
+            "color": "#FFF",
+            "backgroundColor": "#05af21"
+        },
+        {
+            "text": "NOTE:",
+            "color": "#FFF",
+            "backgroundColor": "#cc00cc"
+        },
+        {
+            "text": "HACK:",
+            "color": "#fff",
+            "backgroundColor": "#377777",
+            "isWholeLine": true
+        }
+    ],
+
+    // Silent the stylistic rules in you IDE, but still auto fix them
+    "eslint.rules.customizations": [
+        {
+            "rule": "@stylistic/*|comment-content|no-negated*|no-empty*|*no-multiple-empty-lines*|*comment-content*",
+            "severity": "info"
+        },
+        {
+            "rule": "*consistent*",
+            "severity": "info"
+        },
+        {
+            "rule": "*max-len*|*complexity*|*max-params*|*no-magic-numbers*|*no-duplicate-string*",
+            "severity": "warn"
+        },
+        {
+            "rule": "*style*|*-indent|indent|*-spacing|*-spaces|*order|*-dangle|*-newline|*quotes|*semi|sort-imports",
+            "severity": "info"
+        }
+    ],
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html",
+        "vue",
+        "markdown",
+        "php",
+        "json",
+        "jsonc",
+        "json5",
+        "blade",
+        "properties",
+        "yml",
+        "yaml",
+        "dotenv",
+        "toml"
+    ],
+    "[json]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    }
 }

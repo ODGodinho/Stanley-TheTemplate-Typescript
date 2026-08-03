@@ -3,27 +3,21 @@ name: Ci Job
 on:
   push:
     branches: [ main, master ]
-  pull_request_target:
 
 jobs:
   review-and-test:
     name: lint / tests
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [ 24 ]
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: actions/setup-node@v3
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: ${{ matrix.version }}
-          registry-url: "https://npm.pkg.github.com/"
-          cache: yarn
-      - name: Yarn Install
-        run: yarn
+          bun-version: latest
+      - name: Bun Install
+        run: bun install
       - if: ${{ github.event_name == 'pull_request' }}
         name: Review Dog Pull Request
         uses: reviewdog/action-eslint@v1
@@ -33,9 +27,9 @@ jobs:
           eslint_flags: .
           fail_level: error
       - name: Build Code
-        run: yarn build
+        run: bun run build
       - name: Run Tests
-        run: "yarn test:ci"
+        run: "bun run test:ci"
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
@@ -46,7 +40,7 @@ jobs:
           verbose: true
       - if: ${{ github.event_name == 'push' && vars.IS_PACKAGE == 'true' }}
         name: Install semantic release
-        run: yarn global add semantic-release
+        run: bun add -g semantic-release
       - if: ${{ github.event_name == 'push' && vars.IS_PACKAGE == 'true' }}
         name: Run semantic-release
         env:

@@ -1,4 +1,4 @@
-import { Container } from "../../src/app/Container";
+import { Container } from "#app/Container.js";
 
 const container = new Container();
 

@@ -1,28 +1,32 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
         "outDir": "./dist",
         "paths": {
+            "#app/*": [ "./src/app/*" ],
+            "#configs": [ "./src/Configs" ],
+            "#configs/*": [ "./src/Configs/*" ],
+            "#enums": [ "./src/app/Enums" ],
+            "#enums/*": [ "./src/app/Enums/*" ],
+            "#exceptions": [ "./src/Exceptions" ],
+            "#exceptions/*": [ "./src/Exceptions/*" ],
+            "#factory": [ "./src/app/Factory" ],
+            "#factory/*": [ "./src/app/Factory/*" ],
+            "#interfaces": [ "./src/Interfaces" ],
+            "#interfaces/*": [ "./src/Interfaces/*" ],
+            "#kernel": [ "./src/app/Kernel" ],
+            "#kernel/*": [ "./src/app/Kernel/*" ],
+            "#listeners": [ "./src/app/Listeners" ],
+            "#listeners/*": [ "./src/app/Listeners/*" ],
+            "#providers": [ "./src/app/Providers" ],
+            "#providers/*": [ "./src/app/Providers/*" ],
+            "#services": [ "./src/app/Services" ],
+            "#services/*": [ "./src/app/Services/*" ],
             "#types": [ "./@types" ],
-            "#types/*": [ "./@types/*" ],
-            "@configs": [ "./src/Configs" ],
-            "@configs/*": [ "./src/Configs/*" ],
-            "@enums": [ "./src/app/Enums" ],
-            "@enums/*": [ "./src/app/Enums/*" ],
-            "@factory": [ "./src/app/Factory" ],
-            "@factory/*": [ "./src/app/Factory/*" ],
-            "@interfaces": [ "./src/Interfaces" ],
-            "@interfaces/*": [ "./src/Interfaces/*" ],
-            "@listeners": [ "./src/app/Listeners" ],
-            "@listeners/*": [ "./src/app/Listeners/*" ],
-            "@services": [ "./src/app/Services" ],
-            "@services/*": [ "./src/app/Services/*" ],
-            "~/*": [ "./src/*" ]
+            "#validators": [ "./src/Validators" ],
+            "#validators/*": [ "./src/Validators/*" ]
         },
-        "rootDirs": [
-            ".",
-            "./src"
-        ],
+        "rootDir": ".",
+        "tsBuildInfoFile": "./dist/tsconfig.check.tsbuildinfo",
         "typeRoots": [
             "./@types",
             "node_modules/@types",
@@ -30,6 +34,7 @@
         ],
         "types": [
             "node",
+            "bun-types",
             "vitest/globals"
         ]
     },
@@ -37,6 +42,6 @@
         "node_modules/",
         "dist/"
     ],
-    "extends": "@odg/tsconfig/tsconfig.node.json",
+    "extends": "./node_modules/@odg/tsconfig/tsconfig.node.json",
     "include": [ "." ]
 }

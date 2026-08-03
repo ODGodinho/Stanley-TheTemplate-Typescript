@@ -1,31 +1,25 @@
-import { provide } from "@inversifyjs/binding-decorators";
+import type { EventTypes } from "#types";
 import { ODGDecorators } from "@odg/chemical-x";
 import {
-    EventBusInterface,
-    EventServiceProvider as EventServiceProviderBase,
+    type EventBusInterface,
     type EventListener,
+    EventServiceProvider as EventServiceProviderBase,
 } from "@odg/events";
-import {
-    inject,
-    injectable,
-} from "inversify";
 
-import type { EventTypes } from "#types/EventsInterface";
-import { ContainerName } from "@enums";
-
-import type { Container } from "../Container";
+import type { Container } from "#app/Container.js";
+import { $inject } from "#app/ContainerInject.js";
+import { ContainerName } from "#enums";
 
 /**
  * Event Service Provider to Register all event Listeners
  *
  * @template {EventTypes} Events Events List
  */
-@injectable("Singleton")
-@provide(ContainerName.EventServiceProvider)
+@ODGDecorators.injectable(ContainerName.EventServiceProvider, "Singleton")
 export class EventServiceProvider<Events extends EventTypes> extends EventServiceProviderBase<Events> {
 
     /**
-     * Listeners for events in the application.
+     * Listeners for events in the app.
      *
      * @type {EventListener<EventTypes>}
      * @memberof EventServiceProvider
@@ -41,8 +35,8 @@ export class EventServiceProvider<Events extends EventTypes> extends EventServic
      * @param {Container} container Container to get listeners
      */
     public constructor(
-        @inject(ContainerName.EventBus) protected bus: EventBusInterface<Events>,
-        @inject(ContainerName.Container) private readonly container: Container,
+        @$inject(ContainerName.EventBus) protected bus: EventBusInterface<Events>,
+        @$inject(ContainerName.Container) private readonly container: Container,
     ) {
         super();
         this.listeners = this.getListeners();
@@ -54,7 +48,7 @@ export class EventServiceProvider<Events extends EventTypes> extends EventServic
      * @memberof EventServiceProvider
      * @returns {Promise<void>}
      */
-    public async boot(): Promise<void> {
+    public override async boot(): Promise<void> {
         await super.boot();
     }
 
@@ -64,7 +58,7 @@ export class EventServiceProvider<Events extends EventTypes> extends EventServic
      * @memberof EventServiceProvider
      * @returns {Promise<void>}
      */
-    public async shutdown(): Promise<void> {
+    public override async shutdown(): Promise<void> {
         await super.shutdown();
     }
 

@@ -1,4 +1,4 @@
-import { CustomValidator } from "~/Validator";
+import { CustomValidator } from "#validators";
 
 describe("Custom validator test", () => {
     test("Custom validator String to Boolean", () => {

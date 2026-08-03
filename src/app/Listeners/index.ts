@@ -1,1 +1,1 @@
-export * from "./ExampleEventListener";
+export * from "./ExampleEventListener.js";

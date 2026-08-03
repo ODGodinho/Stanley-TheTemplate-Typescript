@@ -1,4 +1,4 @@
-import { buildProviderModule } from "@inversifyjs/binding-decorators";
+import type { ContainerInterface, EventTypes } from "#types";
 import { AxiosMessage } from "@odg/axios";
 import {
     Container as ContainerBase,
@@ -9,19 +9,17 @@ import { EventEmitterBus } from "@odg/events";
 import { JSONLoggerPlugin } from "@odg/json-log";
 import { ConsoleLogger, Logger } from "@odg/log";
 
-import type { ContainerInterface, EventTypes } from "#types";
-import { type ConfigType, configValidator } from "@configs";
-import { ConfigName, ContainerName } from "@enums";
+import { type ConfigType, configValidator } from "#configs";
+import { ConfigName, ContainerName } from "#enums";
 
-import "@listeners";
-import "@services";
-import "~/Console";
-import "~/app/Provider";
+import "#kernel";
+import "#listeners";
+import "#providers";
+import "#services";
 
 export class Container extends ContainerBase<ContainerInterface> {
 
     public async setUp(): Promise<void> {
-        await this.load(buildProviderModule());
         await ODGDecorators.loadModule(this);
         await this.bindKernel();
         await this.get(ContainerName.Kernel).init();

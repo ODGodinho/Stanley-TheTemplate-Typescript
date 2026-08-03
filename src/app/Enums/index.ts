@@ -1,5 +1,5 @@
-export * from "./ContainerName";
+export * from "./ContainerName.js";
 
-export * from "./ConfigName";
+export * from "./ConfigName.js";
 
-export * from "./EventName";
+export * from "./EventName.js";

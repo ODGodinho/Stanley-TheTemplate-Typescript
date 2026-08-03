@@ -1,19 +1,17 @@
-import { provide } from "@inversifyjs/binding-decorators";
+import type { EventDefaultParameters, EventTypes } from "#types";
 import { ODGDecorators } from "@odg/chemical-x";
 import type { EventListenerInterface } from "@odg/events";
-import { LoggerInterface } from "@odg/log";
-import { inject, injectable } from "inversify";
+import type { LoggerInterface } from "@odg/log";
 
-import type { EventDefaultParameters, EventTypes } from "#types/EventsInterface";
-import { ContainerName, EventName } from "@enums";
+import { $inject } from "#app/ContainerInject.js";
+import { ContainerName, EventName } from "#enums";
 
+@ODGDecorators.injectable(ContainerName.ExampleEventListener, "Singleton")
 @ODGDecorators.registerListener(EventName.Example, ContainerName.ExampleEventListener, {})
-@injectable("Singleton")
-@provide(ContainerName.ExampleEventListener)
 export class ExampleEventListener implements EventListenerInterface<EventTypes, EventName.Example> {
 
     public constructor(
-        @inject(ContainerName.Logger) public readonly log: LoggerInterface,
+        @$inject(ContainerName.Logger) public readonly log: LoggerInterface,
     ) {
     }
 

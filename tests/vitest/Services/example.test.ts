@@ -1,6 +1,7 @@
-import { ContainerName } from "@enums";
-import { ExampleService } from "@services";
-import { container } from "tests/vitest/SingletonTest";
+import { ContainerName } from "#enums";
+import { ExampleService } from "#services";
+
+import { container } from "../SingletonTest.js";
 
 describe("Example Teste", () => {
     test("Teste ExampleService", async () => {
