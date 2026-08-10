@@ -25,7 +25,16 @@ const vite = defineConfig({
                 "src/index.js",
             ],
         },
-        setupFiles: [ "./tests/vitest/init.ts" ],
+        projects: [
+            {
+                test: {
+                    name: "unit",
+                    globals: true,
+                    include: [ "tests/unit/**/*.test.ts" ],
+                    setupFiles: [ "./tests/setup/unit.setup.ts" ],
+                },
+            },
+        ],
     },
 });
 

@@ -4,7 +4,7 @@ import type { EventListenerInterface } from "@odg/events";
 import { ContainerName } from "#enums";
 import { ExampleEventListener } from "#listeners";
 
-import { container } from "../SingletonTest.js";
+import { container } from "../../setup/container.js";
 
 const listeners = Object.values(ContainerName).filter((value) => value.includes("event.listener"));
 

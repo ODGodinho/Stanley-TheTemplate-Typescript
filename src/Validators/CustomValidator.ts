@@ -23,7 +23,8 @@ export class CustomValidator {
             zod.number(),
             zod.string()
                 .trim()
-                .transform((value): number => Number(value.trim()))
+                .regex(/\d+/)
+                .transform(Number)
                 .refine((value) => !Number.isNaN(value), { error: "Invalid number" }),
         ]);
     }

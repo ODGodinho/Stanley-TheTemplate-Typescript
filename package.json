@@ -40,6 +40,7 @@
         "prepare": "husky",
         "reset": "bun run clean && bun install && bun run build",
         "test": "vitest run",
+        "test:unit": "vitest run --project unit --coverage.enabled=false",
         "test:ci": "vitest run --passWithNoTests",
         "test:watch": "vitest --watch",
         "tsc:check": "tsc --noEmit -p tsconfig.json",

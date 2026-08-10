@@ -10,7 +10,7 @@ import {
 
 import { ContainerName } from "#enums";
 
-import { container } from "../SingletonTest.js";
+import { container } from "../../setup/container.js";
 
 describe("Test process kernel", async () => {
     let capturedUncaughtException: ((...parameters: unknown[]) => void) | undefined;

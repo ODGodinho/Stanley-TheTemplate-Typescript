@@ -1,17 +1,18 @@
+import type { ContainerInterface } from "#types";
 import { ConsoleLogger } from "@odg/log";
 import { vi } from "vitest";
 
 import { Container } from "#app/Container.js";
 import { ConfigName, ContainerName } from "#enums";
 
-import { container } from "../SingletonTest.js";
+import { container } from "../../setup/container.js";
 
 describe("Container teste", () => {
     test("Container Functions", async () => {
         expect(container.isBound(ContainerName.ConsoleLogger)).toBe(true);
 
         expect(container.getOptional(ContainerName.ConsoleLogger)).toBeInstanceOf(ConsoleLogger);
-        expect(container.getOptional("Not_Bound")).toBeUndefined();
+        expect(container.getOptional("unknown" as keyof ContainerInterface)).toBeUndefined();
 
         await expect(container.getAsync(ContainerName.ConsoleLogger)).resolves.toBeInstanceOf(ConsoleLogger);
     });
