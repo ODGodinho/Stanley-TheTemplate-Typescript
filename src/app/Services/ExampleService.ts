@@ -7,11 +7,11 @@ import { ContainerName } from "#enums";
 @ODGDecorators.injectable(ContainerName.ExampleService, "Singleton")
 export class ExampleService {
 
-    public constructor(@$inject(ContainerName.Logger) protected log: LoggerInterface) {
+    public constructor(@$inject(ContainerName.Logger) protected logger: LoggerInterface) {
     }
 
     public async execute(): Promise<void> {
-        await this.log.debug("Example Only Code Is running");
+        await this.logger.debug("Example Only Code Is running");
     }
 
 }

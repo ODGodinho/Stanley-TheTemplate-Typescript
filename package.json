@@ -33,6 +33,7 @@
     "scripts": {
         "build": "rimraf dist/ && bun run tsc:build && bun run tsc:alias",
         "build:watch": "concurrently 'bun run tsc:build -w' 'bun run tsc:alias -w'",
+        "clean": "rimraf dist/ node_modules/",
         "dev": "bun ./src/index.ts",
         "start": "bun ./dist/index.js",
         "lint": "odg-lint",
@@ -47,7 +48,11 @@
         "tsc:build": "tsc --project ./tsconfig.build.json",
         "tsc:alias": "tsc-alias"
     },
-    "packageManager": "bun@1.3.14",
+    "engines": {
+        "node": ">=26.0.0",
+        "bun": ">=1.4.0"
+    },
+    "packageManager": "bun@1.4.0",
     "publishConfig": {
         "access": "public"
     },
@@ -84,30 +89,30 @@
     "author": "Dragons Gamers <https://www.linkedin.com/in/victor-alves-odgodinho>",
     "license": "MIT",
     "devDependencies": {
-        "@odg/eslint-config": "^3.16.3",
+        "@odg/eslint-config": "^3.17.0",
         "@odg/tsconfig": "1.9.0",
-        "@types/node": ">=24",
-        "@vitest/coverage-istanbul": "^4.1.10",
-        "bun-types": "^1.3.14",
-        "concurrently": "^10.0.4",
+        "@types/node": ">=26.3.0",
+        "@vitest/coverage-istanbul": "^4.1.11",
+        "bun-types": "^1.4.0",
+        "concurrently": "^10.0.5",
         "husky": "^9.1.7",
         "lint-staged": "^17.3.0",
-        "rimraf": "*",
-        "tsc-alias": "^1.9.1",
-        "tsx": "^4.23.5",
+        "rimraf": "^6.1.3",
+        "tsc-alias": "^1.9.2",
         "typescript": "^6.0.3",
-        "vitest": "^4.1.10"
+        "vitest": "^4.1.11"
     },
     "dependencies": {
         "@inversifyjs/binding-decorators": "^3.0.0",
         "@inversifyjs/strongly-typed": "^3.0.0",
-        "@odg/axios": "^1.26.6",
-        "@odg/chemical-x": "^2.17.3",
-        "@odg/config": "^1.13.3",
-        "@odg/events": "^1.12.8",
-        "@odg/exception": "^1.19.2",
-        "@odg/json-log": "^1.18.3",
-        "@odg/log": "^1.19.2",
+        "@odg/axios": "^1.27.0",
+        "@odg/chemical-x": "^2.18.0",
+        "@odg/config": "^1.13.4",
+        "@odg/events": "^1.12.9",
+        "@odg/exception": "^1.19.3",
+        "@odg/json-log": "^1.19.0",
+        "@odg/log": "^1.20.0",
+        "@odg/message": "^1.27.0",
         "inversify": "^8.2.3",
         "reflect-metadata": "^0.2.2",
         "zod": "^4.4.3"

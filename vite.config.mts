@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config";
+import { coverageConfigDefaults, defineConfig } from "vitest/config";
 
 const coverage100 = 100;
 
@@ -21,6 +21,7 @@ const vite = defineConfig({
                 "100": true,
             },
             exclude: [
+                ...coverageConfigDefaults.exclude,
                 "src/index.ts",
                 "src/index.js",
             ],

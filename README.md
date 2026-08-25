@@ -19,7 +19,7 @@
 [![Made by ODGodinho](https://img.shields.io/badge/made%20by-ODGodinho-%2304A361)](https://www.linkedin.com/in/victor-alves-odgodinho/)
 [![Forks](https://img.shields.io/github/forks/ODGodinho/Stanley-TheTemplate-Typescript?color=CD4D34)](https://github.com/ODGodinho/Stanley-TheTemplate-Typescript/network/members)
 ![Repository size](https://img.shields.io/github/repo-size/ODGodinho/Stanley-TheTemplate-Typescript)
-[![GitHub last commit](https://img.shields.io/github/last-commit/ODGodinho/Stanley-TheTemplate-Typescript)](https://github.com/ODGodinho/Stanley-TheTemplate-Typescript/commits/master)
+[![GitHub last commit](https://img.shields.io/github/last-commit/ODGodinho/Stanley-TheTemplate-Typescript)](https://github.com/ODGodinho/Stanley-TheTemplate-Typescript/commits/main)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen)](https://opensource.org/licenses/MIT)
 [![StyleCI](https://github.styleci.io/repos/562306382/shield?branch=main)](https://github.styleci.io/repos/562306382?branch=main)
 
@@ -40,7 +40,7 @@
   - [💻 Prepare to develop](#-prepare-to-develop)
   - [📍 Start Project](#-start-project)
   - [📨 Build and Run](#-build-and-run)
-  - [🧪 Teste Code](#-teste-code)
+  - [🧪 Test Code](#-test-code)
 
 ---
 
@@ -59,7 +59,7 @@
 
 ## 📗 Libraries
 
-- [Node.js 18](https://nodejs.org/?n=dragonsgamers)
+- [Node.js 26](https://nodejs.org/?n=dragonsgamers)
 - [Typescript](https://www.typescriptlang.org/?n=dragonsgamers)
 - [Eslint](https://eslint.org/?n=dragonsgamers)
 - [ODG-Linter-JS](https://github.com/ODGodinho/ODG-Linter-Js?n=dragonsgamers)
@@ -68,7 +68,7 @@
 
 ## 📁 Dependencies
 
-- [Bun](https://bun.com) 1.3 or later
+- [Bun](https://bun.com) 1.4 or later
 - [ODG TsConfig](https://github.com/ODGodinho/tsconfig) Last Version
 
 ## ⏩ Get Started
@@ -145,7 +145,7 @@ bun run build && bun run start
 bun run dev
 ```
 
-## 🧪 Teste Code
+## 🧪 Test Code
 
 To Test execute this command
 

@@ -43,26 +43,6 @@ export class EventServiceProvider<Events extends EventTypes> extends EventServic
     }
 
     /**
-     * Boot EventServiceProvider register all events listeners
-     *
-     * @memberof EventServiceProvider
-     * @returns {Promise<void>}
-     */
-    public override async boot(): Promise<void> {
-        await super.boot();
-    }
-
-    /**
-     * Shutdown remove all Events Service Provider
-     *
-     * @memberof EventServiceProvider
-     * @returns {Promise<void>}
-     */
-    public override async shutdown(): Promise<void> {
-        await super.shutdown();
-    }
-
-    /**
      * Listeners to Load
      *
      * @returns {EventListener<EventTypes>}

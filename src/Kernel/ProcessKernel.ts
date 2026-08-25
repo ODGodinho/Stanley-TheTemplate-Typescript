@@ -19,6 +19,7 @@ export class ProcessKernel {
      */
     public async register(): Promise<void> {
         process.on("uncaughtException", this.uncaughtException.bind(this));
+        process.on("unhandledRejection", this.uncaughtException.bind(this));
         process.on("message", this.messageShutdownListen.bind(this));
     }
 
@@ -36,7 +37,7 @@ export class ProcessKernel {
 
     /**
      * Message listener for shutdown
-     * Fust ignore so that the end of processing can wait for the crawler to finish
+     * First ignore so that the end of processing can wait for the crawler to finish
      *
      * This example can be used with `pm2 stop`
      * You can use: `process.exit(1);` to force exit

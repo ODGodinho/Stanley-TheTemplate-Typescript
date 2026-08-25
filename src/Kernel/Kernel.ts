@@ -20,7 +20,7 @@ export class Kernel {
     public constructor(
         @$inject(ContainerName.Config) public readonly config: ContainerInterface[ContainerName.Config],
         @$inject(ContainerName.ConsoleLogger) public readonly consoleLogger: LoggerInterface,
-        @$inject(ContainerName.Logger) public readonly logger: LoggerInterface,
+        @$inject(ContainerName.Logger) public readonly logger: Logger,
         @$inject(ContainerName.Container) public readonly container: Container,
         @$inject(ContainerName.ProcessKernel) public readonly processKernel: ProcessKernel,
     ) {
@@ -32,9 +32,9 @@ export class Kernel {
      * @returns {Promise<void>}
      */
     public async boot(): Promise<void> {
+        await this.bootLogs();
         await Promise.all([
             this.logger.info("Kernel Starting"),
-            this.bootLogs(),
             this.container.get(ContainerName.EventServiceProvider).boot(),
         ]);
         process.send?.("ready");
@@ -60,11 +60,10 @@ export class Kernel {
     }
 
     private async bootLogs(): Promise<void> {
-        const logger: Logger = this.container.get(ContainerName.Logger);
         const jsonLogger = this.container.get(ContainerName.JSONLoggerPlugin);
 
-        logger.pushHandler(this.consoleLogger);
-        logger.pushProcessor(jsonLogger);
+        this.logger.pushHandler(this.consoleLogger);
+        this.logger.pushProcessor(jsonLogger);
         jsonLogger.setIdentifier(randomUUID());
     }
 

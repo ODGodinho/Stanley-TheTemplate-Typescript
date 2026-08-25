@@ -1,7 +1,7 @@
-import type { EventDefaultParameters, EventTypes } from "#types";
+import type { EventTypes, ExampleParameters } from "#types";
 import { ODGDecorators } from "@odg/chemical-x";
 import type { EventListenerInterface } from "@odg/events";
-import type { LoggerInterface } from "@odg/log";
+import type { Logger } from "@odg/log";
 
 import { $inject } from "#app/ContainerInject.js";
 import { ContainerName, EventName } from "#enums";
@@ -11,12 +11,12 @@ import { ContainerName, EventName } from "#enums";
 export class ExampleEventListener implements EventListenerInterface<EventTypes, EventName.Example> {
 
     public constructor(
-        @$inject(ContainerName.Logger) public readonly log: LoggerInterface,
+        @$inject(ContainerName.Logger) public readonly logger: Logger,
     ) {
     }
 
-    public async handler(_eventsData: EventDefaultParameters): Promise<void> {
-        await this.log.debug("Example Event Listener Action not implemented");
+    public async handler(eventsData: ExampleParameters): Promise<void> {
+        await this.logger.debug("Example Event Listener Action not implemented", { ...eventsData });
     }
 
 }

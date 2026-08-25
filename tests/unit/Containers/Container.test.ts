@@ -18,7 +18,7 @@ describe("Container teste", () => {
     });
 
     test("Container Optional Application Name", async () => {
-        process.env.APP_NAME = undefined;
+        delete process.env.APP_NAME;
         const newContainer = new Container();
 
         await expect(newContainer.setUp()).resolves.toBeUndefined();

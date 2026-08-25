@@ -3,13 +3,14 @@ name: Ci Job
 on:
   push:
     branches: [ main, master ]
+  pull_request:
 
 jobs:
   review-and-test:
     name: lint / tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -17,7 +18,7 @@ jobs:
         with:
           bun-version: latest
       - name: Bun Install
-        run: bun install
+        run: bun install --frozen-lockfile
       - if: ${{ github.event_name == 'pull_request' }}
         name: Review Dog Pull Request
         uses: reviewdog/action-eslint@v1
@@ -26,12 +27,14 @@ jobs:
           github_token: ${{ secrets.GH_TOKEN }}
           eslint_flags: .
           fail_level: error
+      - name: Type Check
+        run: bun run tsc:check
       - name: Build Code
         run: bun run build
       - name: Run Tests
         run: "bun run test:ci"
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           flags: unittests

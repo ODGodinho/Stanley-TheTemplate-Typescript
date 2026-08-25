@@ -5,31 +5,32 @@ import { ContainerName } from "#enums";
 
 const project = new Container();
 
+let exitCode = 0;
+
 try {
     await project.setUp();
 
-    const kernel = project.get(ContainerName.Kernel);
+    const kernel = await project.getAsync(ContainerName.Kernel);
 
     await kernel.boot();
 
     const service = await project.getAsync(ContainerName.ExampleService);
 
     await service.execute();
-
-    await kernel.shutdown();
-
-    process.exit(0);
 } catch (exception) {
-    const loggerName = project.isBound(ContainerName.Logger) ? ContainerName.Logger : ContainerName.ConsoleLogger;
+    exitCode = 1;
 
+    const loggerName = project.isBound(ContainerName.Logger) ? ContainerName.Logger : ContainerName.ConsoleLogger;
     const logger = project.getOptional(loggerName);
 
     await logger?.error(exception);
 
-    if (logger) {
+    if (!logger) {
         // eslint-disable-next-line no-console -- Disabled only for critical errors
         console.error(exception);
     }
-
-    process.exit(1);
+} finally {
+    await project.getOptional(ContainerName.Kernel)?.shutdown();
 }
+
+process.exit(exitCode);

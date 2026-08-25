@@ -17,6 +17,20 @@ describe("Test process kernel", async () => {
     let capturedMessageListener: ((...parameters: unknown[]) => void) | undefined;
     const messageToEnd = "Waiting for the crawler to kill the process";
 
+    function mockProcessOn(event: string | symbol, listener: (...parameters: unknown[]) => void): typeof process {
+        if (event === "uncaughtException") {
+            capturedUncaughtException = listener;
+        } else if (event === "message") {
+            capturedMessageListener = listener;
+        }
+
+        return process;
+    }
+
+    function captureProcessHandlers(): void {
+        vi.spyOn(process, "on").mockImplementation(mockProcessOn as typeof process.on);
+    }
+
     beforeEach(() => {
         vi.restoreAllMocks();
         capturedUncaughtException = undefined;
@@ -30,17 +44,7 @@ describe("Test process kernel", async () => {
     test("ProcessKernel register method", async () => {
         const processKernel = container.get(ContainerName.ProcessKernel);
 
-        vi.spyOn(process, "on").mockImplementation(
-            (event: string | symbol, listener: (...parameters: unknown[]) => void) => {
-                if (event === "uncaughtException") {
-                    capturedUncaughtException = listener;
-                } else if (event === "message") {
-                    capturedMessageListener = listener;
-                }
-
-                return process;
-            },
-        );
+        captureProcessHandlers();
 
         await processKernel.register();
 
@@ -51,17 +55,7 @@ describe("Test process kernel", async () => {
     test("ProcessKernel register callbacks execution", async () => {
         const processKernel = container.get(ContainerName.ProcessKernel);
 
-        vi.spyOn(process, "on").mockImplementation(
-            (event: string | symbol, listener: (...parameters: unknown[]) => void) => {
-                if (event === "uncaughtException") {
-                    capturedUncaughtException = listener;
-                } else if (event === "message") {
-                    capturedMessageListener = listener;
-                }
-
-                return process;
-            },
-        );
+        captureProcessHandlers();
 
         await processKernel.register();
 
@@ -76,17 +70,7 @@ describe("Test process kernel", async () => {
     test("ProcessKernel register callbacks with logger rejection", async () => {
         const processKernel = container.get(ContainerName.ProcessKernel);
 
-        vi.spyOn(process, "on").mockImplementation(
-            (event: string | symbol, listener: (...parameters: unknown[]) => void) => {
-                if (event === "uncaughtException") {
-                    capturedUncaughtException = listener;
-                } else if (event === "message") {
-                    capturedMessageListener = listener;
-                }
-
-                return process;
-            },
-        );
+        captureProcessHandlers();
 
         await processKernel.register();
 
@@ -103,15 +87,7 @@ describe("Test process kernel", async () => {
     test("ProcessKernel message shutdown listener", async () => {
         const processKernel = container.get(ContainerName.ProcessKernel);
 
-        vi.spyOn(process, "on").mockImplementation(
-            (event: string | symbol, listener: (...parameters: unknown[]) => void) => {
-                if (event === "message") {
-                    capturedMessageListener = listener;
-                }
-
-                return process;
-            },
-        );
+        captureProcessHandlers();
 
         await processKernel.register();
 
@@ -126,15 +102,7 @@ describe("Test process kernel", async () => {
     test("ProcessKernel message listener with logger rejection", async () => {
         const processKernel = container.get(ContainerName.ProcessKernel);
 
-        vi.spyOn(process, "on").mockImplementation(
-            (event: string | symbol, listener: (...parameters: unknown[]) => void) => {
-                if (event === "message") {
-                    capturedMessageListener = listener;
-                }
-
-                return process;
-            },
-        );
+        captureProcessHandlers();
 
         await processKernel.register();
 

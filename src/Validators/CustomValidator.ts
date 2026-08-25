@@ -12,7 +12,7 @@ export class CustomValidator {
     > {
         return zod.union([
             zod.boolean(),
-            zod.string().trim().transform((value): boolean => value === "true"),
+            zod.string().trim().regex(/^(?:false|true)$/).transform((value): boolean => value === "true"),
         ]);
     }
 
@@ -23,7 +23,7 @@ export class CustomValidator {
             zod.number(),
             zod.string()
                 .trim()
-                .regex(/\d+/)
+                .regex(/^\d+$/)
                 .transform(Number)
                 .refine((value) => !Number.isNaN(value), { error: "Invalid number" }),
         ]);
